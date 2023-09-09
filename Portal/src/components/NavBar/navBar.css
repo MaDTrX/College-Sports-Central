@@ -1,0 +1,16 @@
+.link {
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.button {
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFF;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
