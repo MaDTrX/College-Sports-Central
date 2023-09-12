@@ -1,0 +1,21 @@
+{
+  "name": "school-schedule-scraper",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bunyan": "^1.8.15",
+    "cheerio": "^1.0.0-rc.11",
+    "csv-writer": "^1.6.0",
+    "csvtojson": "^2.0.10",
+    "dd-trace": "^3.3.1",
+    "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.37",
+    "node-fetch": "^2.6.7",
+    "nodejs": "^0.0.0",
+    "os": "^0.1.2",
+    "pretty": "^2.0.0",
+    "puppeteer": "^19.7.5",
+    "underscore": "^1.13.4"
+  }
+}
