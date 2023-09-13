@@ -11,6 +11,7 @@ import schoolSportRouter from "./routes/schoolSports.js"
 import airportRouter from "./routes/airports.js"
 import aircraftRouter from "./routes/aircrafts.js"
 import flightRouter from "./routes/flights.js"
+import serverless from "serverless-http"
 import'./config/database.js'
 
 const corsOptions = {
@@ -46,6 +47,6 @@ app.use('/aircrafts', aircraftRouter);
 app.use('/flights', flightRouter);
 
 
-app.listen(process.env.PORT || 8080, () => console.log('server listening'))
+// app.listen(process.env.PORT || 8080, () => console.log('server listening'))
 
-export default app;
+export const handler = serverless(app)
