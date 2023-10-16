@@ -1,12 +1,16 @@
-require('dotenv').config({ path: process.cwd() + '\\process.env' })
+require('dotenv').config()
 const _ = require('underscore')
 const axios = require('axios')
 const https = require('https');
-const { parse } = require('path');
 const agent = new https.Agent({ rejectUnauthorized: false });
+const Sentry = require("@sentry/node")
+const parser = require('./Schedules/getData/Parser')
 
-const parser = require('./scraper/getData/parser')
-const logging = require('./scraper/services/dataDogLogging').config({ service:'school-schedule-scraper'});
+Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    tracesSampleRate: 1.0,
+    profilesSampleRate: 1.0,
+  });
 
 async function sendData(args) {
     request.Args = args;
@@ -24,16 +28,16 @@ async function sendData(args) {
                          .then(function(res) {
                             schools = res.data;
                          },function (err) {
-                            console.error(err);
+                            Sentry.captureException(err)
                             throw err;
                          });
     var i = 0;
     const totalSchools = Object.keys(schools).length;
     for (const schoolNameKey in schools) {
-        console.debug('Processing[' + (++i) + '/' + totalSchools + ']: ' + schoolNameKey + ' Sports: ' + Object.keys(schools[schoolNameKey].sportCodeUrls).length);
+        console.info('Processing[' + (++i) + '/' + totalSchools + ']: ' + schoolNameKey + ' Sports: ' + Object.keys(schools[schoolNameKey].sportCodeUrls).length)
 
         for (const sportsCodeKey in schools[schoolNameKey].sportCodeUrls) {
-            //console.debug('  ' + sportsCodeKey + ' (' + schools[schoolNameKey].sportCodeUrls[sportsCodeKey] + ')');
+            console.info('  ' + sportsCodeKey + ' (' + schools[schoolNameKey].sportCodeUrls[sportsCodeKey] + ')');
             await parser.Scrape(schools[schoolNameKey], sportsCodeKey)
         }
     }
@@ -104,11 +108,11 @@ async function RegisterProcess(action) {
         request.IsRunning = true;
     }
     try {
-        const currentProcessTask = await axios.post(process.env.SchoolScheduleIntakeUrl + '/Intake/Process', request, { httpsAgent: agent })
+        // const currentProcessTask = await axios.post(process.env.SchoolScheduleIntakeUrl + '/Intake/Process', request, { httpsAgent: agent })
         currentProcess = await currentProcessTask.data;
     }
-    catch (ex) {
-        console.debug(ex);
+    catch (err) {
+       Sentry.captureException(err)
     }
     if (action === 'Stop') {
         let time2 = performance.now()

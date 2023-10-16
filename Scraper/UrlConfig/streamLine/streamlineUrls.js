@@ -54,10 +54,10 @@ async function streamLineEndpoints() {
 
     await fs.writeFile("../../json/StreamLineSports.json", stringify, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
 
 

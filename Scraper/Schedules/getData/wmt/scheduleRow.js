@@ -4,7 +4,7 @@ const pretty = require('pretty')
 async function getSchedules() {
     // let res = await fetch('https://und.com/sports/football/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //notre dame -> University of iowa -> kansas -> vander
     // $('.schedule__row').each((i, el) => {
@@ -14,7 +14,7 @@ async function getSchedules() {
     //     const time =  $(el).find('.time').find('span').text()
     //     const opponent = $(el).find('.title').find('span:last').text()
 
-    //     console.log({
+    //     console.llog({
     //         venueHostStatus : pretty(at[1]),
     //         compEventName : pretty(opponent),
     //         compEventTime : pretty(time),
@@ -27,7 +27,7 @@ async function getSchedules() {
 
     // let res = await fetch('https://vucommodores.com/sports/football/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //notre dame -> University of iowa -> kansas -> vander
     // $('.schedule__row').each((i, el) => {
@@ -38,9 +38,9 @@ async function getSchedules() {
     //     const atSplit = $(el).attr().class.split(' ')
     //     const at = atSplit[1][0].toUpperCase()
     //     const opponent = opp[1].trim()
-    //     // console.log(opp[1].trim())
+    //     // console.llog(opp[1].trim())
 
-    //     console.log({
+    //     console.llog({
     //         venueHostStatus : pretty(at),
     //         compEventName : pretty(opponent),
     //         compEventTime : pretty(time),
@@ -55,7 +55,7 @@ async function getSchedules() {
 
     // let res = await fetch('https://kuathletics.com/sports/football/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //notre dame -> University of iowa -> kansas -> vander
     // $('.schedule__row').each((i, el) => {
@@ -66,9 +66,9 @@ async function getSchedules() {
     //     const atSplit = $(el).attr().class.split(' ')
     //     const at = atSplit[1][0].toUpperCase()
 
-    //     // console.log(at)
+    //     // console.llog(at)
 
-    //     console.log({
+    //     console.llog({
     //         venueHostStatus : pretty(at),
     //         compEventName : pretty(opponent),
     //         compEventTime : pretty(time),
@@ -83,7 +83,7 @@ async function getSchedules() {
 
     // let res = await fetch('https://hawkeyesports.com/sports/football/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //notre dame -> University of iowa -> kansas -> vander
     // $('.schedule__row').each((i, el) => {
@@ -94,9 +94,9 @@ async function getSchedules() {
     //     const atSplit = $(el).attr().class.split(' ')
     //     const at = atSplit[1][0].toUpperCase()
 
-    //     // console.log(at)
+    //     // console.llog(at)
 
-    //     console.log({
+    //     console.llog({
     //         venueHostStatus : pretty(at),
     //         compEventName : pretty(opponent),
     //         compEventTime : pretty(time),
@@ -113,7 +113,7 @@ async function getSchedules() {
     // let $ = cheerio.load(data)
     // // arkansas -> miami -> new mexico
     // $('.item').each((i, el) => {
-    //     // console.log(pretty($(el).text().trim()))
+    //     // console.llog(pretty($(el).text().trim()))
     //         const date = $(el).find('.date').find('span:first').text().trim()
     //         const locations = $(el).find('.name').find('p').text().trim()
     //         const time =  $(el).find('.result').text().trim()
@@ -121,9 +121,9 @@ async function getSchedules() {
     //         const at = $(el).find('.status').text().trim()
 
 
-    //         // console.log(date)
+    //         // console.llog(date)
 
-    //         console.log({
+    //         console.llog({
     //             venueHostStatus : pretty(at[0]),
     //             compEventName : pretty(opponent),
     //             compEventTime : pretty(time),
@@ -140,7 +140,7 @@ async function getSchedules() {
     // let $ = cheerio.load(data)
     // // arkansas -> miami -> new mexico
     // $('.item').each((i, el) => {
-    //     // console.log(pretty($(el).text().trim()))
+    //     // console.llog(pretty($(el).text().trim()))
     //         const date = $(el).find('strong').text().trim()
     //         const locations = $(el).find('.time-container').find('.place').text().trim()
     //         const time =  $(el).find('.time').find('span').text().trim()
@@ -148,9 +148,9 @@ async function getSchedules() {
     //         const at = $(el).find('.type').text().trim()
 
 
-    //         // console.log(date)
+    //         // console.llog(date)
 
-    //         console.log({
+    //         console.llog({
     //             venueHostStatus : pretty(at[0]),
     //             compEventName : pretty(opponent),
     //             compEventTime : pretty(time),
@@ -167,7 +167,7 @@ async function getSchedules() {
     // let $ = cheerio.load(data)
     // // arkansas -> miami -> new mexico
     // $('.item').each((i, el) => {
-    //     // console.log(pretty($(el).text().trim()))
+    //     // console.llog(pretty($(el).text().trim()))
     //         const date = $(el).find('.date').find('span:last').text().trim()
     //         const locations = $(el).find('.name').find('p').text().trim()
     //         const time =  $(el).find('.result').find('span').text().trim()
@@ -175,9 +175,9 @@ async function getSchedules() {
     //         const atSplit = $(el).attr().class.split(' ')
     //         const at = atSplit[1] ? atSplit[1][0].toUpperCase() : ''
 
-    //         // console.log(atSplit)
+    //         // console.llog(atSplit)
 
-    //         console.log({
+    //         console.llog({
     //             venueHostStatus : pretty(at),
     //             compEventName : pretty(opponent),
     //             compEventTime : pretty(time),
@@ -200,9 +200,9 @@ async function getSchedules() {
                     const atSplit = $(el).attr().class.split(' ')
                     const at = atSplit[1] ? atSplit[1][0].toUpperCase() : ''
 
-                    // console.log(atSplit)
+                    // console.llog(atSplit)
 
-              console.log({
+              console.llog({
                 venueHostStatus : pretty(at),
                 compEventName : pretty(opponent),
                 compEventTime : pretty(time),
@@ -216,43 +216,43 @@ async function getSchedules() {
 
     // let res = await fetch('https://seminoles.com/sports/baseball/schedule/season/2021-22/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //FLORIDA
     // $('.seminoles--box').each((i, el) => {
-    //     console.log(pretty($(el).text().trim()))
+    //     console.llog(pretty($(el).text().trim()))
     // })
     // let res = await fetch('https://clemsontigers.com/sports/baseball/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //clemson
     // $('.schedule__item').each((i, el) => {
-    //     console.log(pretty($(el).text().trim()))
+    //     console.llog(pretty($(el).text().trim()))
     // })
     // let res = await fetch('https://virginiasports.com/sports/baseball/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //virginia
     // $('.schedule__item-row').each((i, el) => {
-    //     console.log(pretty($(el).text().trim()))
+    //     console.llog(pretty($(el).text().trim()))
     // })
     // let res = await fetch('https://ramblinwreck.com/sports/m-basebl/schedule/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //georgia tech
     // $('.inner').each((i, el) => {
-    //     console.log(pretty($(el).text().trim()))
+    //     console.llog(pretty($(el).text().trim()))
     // })
     // let res = await fetch('https://ohiostatebuckeyes.com/sports/m-basebl/')
     // let data = await res.text()
-    // // console.log(data)
+    // // console.llog(data)
     // let $ = cheerio.load(data)
     // //OHIO
     // $('.ohio--schedule-item').each((i, el) => {
-    //     console.log(pretty($(el).text().trim()))
+    //     console.llog(pretty($(el).text().trim()))
     // })
 
 }

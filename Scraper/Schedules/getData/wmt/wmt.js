@@ -49,13 +49,13 @@ async function wmtScrape(school, sportCode, yearString,$) {
             sportCode: sportCode,
             redirectUrl: school.redirected ? school.redirected : undefined
         });
-        console.log({
-            venueHostStatus : pretty(at[1]),
-            compEventName : pretty(opponent),
-            compEventTime : pretty(time),
-            compEventDate: pretty(date),
-            compEventLocName : pretty(locations)
-        })
+        console.llog({
+        //     venueHostStatus : pretty(at[1]),
+        //     compEventName : pretty(opponent),
+        //     compEventTime : pretty(time),
+        //     compEventDate: pretty(date),
+        //     compEventLocName : pretty(locations)
+        // })
     })
 
 
@@ -80,7 +80,7 @@ async function wmtScrape(school, sportCode, yearString,$) {
                 
                 try {
                     let url = wmtSports[i][key].replace('2021-22', currentYear)
-                    console.log(url)
+                    console.llog(url)
                     const res = await axios.get(url)
                     const $ = cheerio.load(res.data)
                     $('.event-row').each((i, el) => {
@@ -99,7 +99,7 @@ async function wmtScrape(school, sportCode, yearString,$) {
                         sport: key,
                         url: wmtSports[i][key].replace('2021-22', currentYear)
                     })
-                    // console.log(currentSeasonNotAvailable)
+                    // console.llog(currentSeasonNotAvailable)
                     continue
                 }
             }
@@ -109,19 +109,19 @@ async function wmtScrape(school, sportCode, yearString,$) {
 
     await fs.writeFile("json/wmtSchedules.json", stringify, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
     const stringify2 = await JSON.stringify(currentSeasonNotAvailable);
 
     await fs.writeFile("json/wmtNoCurrentSeason.json", stringify2, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
 }
 module.exports = {

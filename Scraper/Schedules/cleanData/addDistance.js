@@ -89,17 +89,16 @@ async function getDistances(schedules) {
             } else if (schedules[i].venueHostStatus === "N" && !distanceMap[school + "_" + destination] && !faliedDist.has(opponent + "_" + destination)) {
               const calcDist = await googleApi.getDistances(school, destination, matrixApi)
 
-                if (calcDist) {
-                    distanceMap[school + '_' + destination] = calcDist.distance
-                    schedules[i]['compEventDistance'].push(calcDist)
-                    newDistanceMaps.push({
-                        travel: school + '_' + destination,
-                        distance: calcDist.distance
-                    })
-                } else {
-                    faliedDist.add(school + "_" + destination)
-                }
-              */
+                // if (calcDist) {
+                //     distanceMap[school + '_' + destination] = calcDist.distance
+                //     schedules[i]['compEventDistance'].push(calcDist)
+                //     newDistanceMaps.push({
+                //         travel: school + '_' + destination,
+                //         distance: calcDist.distance
+                //     })
+                // } else {
+                //     faliedDist.add(school + "_" + destination)
+                // }
             } else if (schedules[i].venueHostStatus === "N" && distanceMap[school + "_" + destination]) {
                 schedules[i]['compEventDistance'] = [{
                     schoolName: school,

@@ -15,7 +15,7 @@ async function editLocTime(schedules) {
     let newTimeZones = []
     let res = await fetch(coordinateUrl)
     let coords = await res.json()
-    // console.log(schedules.length)
+    // console.llog(schedules.length)
 
     for (let i = 0; i < coords.length; i++) {
         latLng[coords[i].location] = {
@@ -95,7 +95,7 @@ async function editLocTime(schedules) {
                   newLatLng.push(coordInfo)
 
             } catch (err) {
-                console.error('editLocTime.editLocTime: ' + err.message + '\r\n' + err)
+                console.lerror('editLocTime.editLocTime: ' + err.message + '\r\n' + err)
                 continue
             }
 
@@ -113,7 +113,7 @@ async function editLocTime(schedules) {
                   }
                   newTimeZones.push(tz)
             } catch (err) {
-                console.error('editLocTime.editLocTime: ' + err.message + '\r\n' + err)
+                console.lerror('editLocTime.editLocTime: ' + err.message + '\r\n' + err)
                 continue
             }
         } else if (latLng[loc] && timeZones[loc]) {
@@ -137,7 +137,7 @@ async function editLocTime(schedules) {
         }
         if (!schedules[i].compEventDateTime ||
             !dateTimeUtil.IsValidDate(schedules[i].compEventDateTime)) {
-            console.debug('Invalid Date: ' + schedules[i].compEventDateTime);
+            console.ldebug('Invalid Date: ' + schedules[i].compEventDateTime);
         }
     }
 /*
@@ -151,9 +151,9 @@ async function editLocTime(schedules) {
                 },
                 body: JSON.stringify(newLatLng)
             })
-            console.log(sendCoords.status, 'coords')
+            console.llog(sendCoords.status, 'coords')
         } catch (err) {
-            console.log(err.message, 'sendcoords')
+            console.llog(err.message, 'sendcoords')
         }
     }
 
@@ -169,7 +169,7 @@ async function editLocTime(schedules) {
             })
 
         } catch (err) {
-            console.log(err.message, 'sendTz')
+            console.llog(err.message, 'sendTz')
         }
     }
 */

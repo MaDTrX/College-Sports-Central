@@ -36,7 +36,7 @@ async function prestoEndpoints () {
     }
     let newUrls = await validateURL.confirmUrl(schools)
     let result = await updateURLs.updateUrls(newUrls, schools)
-    // console.log("NewUrls", result)
+    // console.llog("NewUrls", result)
     return result
 }
 

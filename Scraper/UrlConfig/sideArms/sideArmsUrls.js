@@ -85,10 +85,10 @@ async function getSideArmPartners() {
     //* raw data for urls the will be editted to sideArms.json after getting passed through urlStatus and UrlController
     await fs.writeFile("json/SideArmSports.json", stringify, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
 
 }

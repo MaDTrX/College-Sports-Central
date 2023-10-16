@@ -13,7 +13,7 @@ async function getTimezone(lat, lng) {
         return data.timeZoneName
 
     } catch (err) {
-        console.error('googleApi.getTimezone: ' + err.message+'\r\n'+err);
+        console.lerror('googleApi.getTimezone: ' + err.message+'\r\n'+err);
         return err
     }
 }
@@ -31,7 +31,7 @@ async function getCoordinates(loc) {
 
     } catch (err) {
 
-        console.error('googleApi.getCoordinates: '+err.message+'\r\n'+err);
+        console.lerror('googleApi.getCoordinates: '+err.message+'\r\n'+err);
         return err
     }
 }
@@ -52,7 +52,7 @@ async function getDistances(school, destination, url) {
         } catch (err) {    
         }
     } catch (err) {
-        console.exception('googleApi.getDistances:' + err.message+'\r\n'+err);
+        console.lexception('googleApi.getDistances:' + err.message+'\r\n'+err);
         return err
     }
     return null;

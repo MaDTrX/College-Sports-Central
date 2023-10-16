@@ -53,7 +53,7 @@ function ParseTime(time) {
         }
 
         if (!timeFormat.test(time)) {
-            console.debug('Invalid time: ' + time);
+            console.ldebug('Invalid time: ' + time);
             return '00:00:00';
         }
         let momentTime = moment(time, ['h:m a', 'H:m']);
@@ -63,7 +63,7 @@ function ParseTime(time) {
         // }
         return momentTime;
     } else {
-        console.log('Invalid Type: ' + typeof time);
+        console.llog('Invalid Type: ' + typeof time);
     }
     return;
 }

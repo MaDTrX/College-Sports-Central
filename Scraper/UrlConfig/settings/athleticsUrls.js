@@ -51,7 +51,7 @@ async function urlsSearch() {
                 athleticsURL: athleticLinks[2]
             })
         } catch (err) {
-            console.log(err)
+            console.llog(err)
             continue
 
         }

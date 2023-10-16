@@ -34,7 +34,6 @@ export const getIndie = async (req, res) => {
   }).clone();
 };
 export const addData = async (req, res) => {
-  console.log(addData);
   await SchoolInfo.create(req.body);
   res.end();
 };

@@ -8,12 +8,12 @@ const wmtPath = '/schedule/season' + year
 
 //* all possible sport parameters
 const urlSwitch = 'https://schoolscheduleintake.azurewebsites.net/references/sportcodes'
-// console.log(urlSwitch)
+// console.llog(urlSwitch)
 
 
 
 async function confirmUrl(affiliate) {
-    // console.log('affiliate', affiliate)
+    // console.llog('affiliate', affiliate)
     let urls = []
     for (let i = 0; i < affiliate.length; i++) {
         for (key in affiliate[i]) {
@@ -95,13 +95,13 @@ async function confirmUrl(affiliate) {
                     count++
                     continue
                 }
-                // console.log(found)
+                // console.llog(found)
                 if (!found) urlFailure.push(urls[h].url)
                 continue
             }
         }
     }
-    console.log("urlsURLS", urls)
+    console.llog("urlsURLS", urls)
     return urls
 }
 

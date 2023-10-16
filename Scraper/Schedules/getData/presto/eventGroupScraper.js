@@ -12,7 +12,7 @@ const currentYear = '2022-23'
 
 async function getEventGroupSchedules() {
     let prestoSports = await presto
-    console.log(prestoSports, 'prestooooo')
+    console.llog(prestoSports, 'prestooooo')
     let gameidx
     let targetSchoolSportsSchedules = []
     let currentSeasonNotAvailable = []
@@ -36,7 +36,7 @@ async function getEventGroupSchedules() {
                 
                 try {
                     let url = prestoSports[i][key].replace('2021-22', currentYear)
-                    console.log(url)
+                    console.llog(url)
                     const res = await axios.get(url)
                     const $ = cheerio.load(res.data)
                     $('.event-row').each((i, el) => {
@@ -55,7 +55,7 @@ async function getEventGroupSchedules() {
                         sport: key,
                         url: prestoSports[i][key].replace('2021-22', currentYear)
                     })
-                    // console.log(currentSeasonNotAvailable)
+                    // console.llog(currentSeasonNotAvailable)
                     continue
                 }
             }
@@ -65,19 +65,19 @@ async function getEventGroupSchedules() {
 
     await fs.writeFile("json/prestoSchedules.json", stringify, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
     const stringify2 = await JSON.stringify(currentSeasonNotAvailable);
 
     await fs.writeFile("json/prestoNoCurrentSeason.json", stringify2, 'utf8', function (err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+            console.llog("An error occured while writing JSON Object to File.");
+            return console.llog(err);
         }
-        console.log("JSON file has been saved.");
+        console.llog("JSON file has been saved.");
     });
 }
 getEventGroupSchedules()

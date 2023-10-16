@@ -11,7 +11,7 @@ const idInsert = require('../../cleanData/addIDs')
 //const distances = require('../../cleanData/addDistance')
 
 const dateTimeUtil = require('../../cleanData/dateTimeUtil');
-const logging = require('../../services/dataDogLogging').config({ service:'school-schedule-scraper'});
+// const logging = require('../../services/dataDogLogging').config({ service:'school-schedule-scraper'});
 
 async function sidearmScrape(school, sportCode,$) {
     const targetSchoolSportsSchedules = []
@@ -60,7 +60,7 @@ async function sidearmScrape(school, sportCode,$) {
             })
         });        
     } catch (err) {
-        console.error('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+        console.lerror('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
         throw err;
     }
 
@@ -72,7 +72,7 @@ async function sidearmScrape(school, sportCode,$) {
             let insertID = await idInsert.getIDs(school,nameOff)
         //let distCalc = await distances.getDistances(insertID)
         } catch (err) {
-            console.error('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+            console.lerror('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
             // swallow the exception
         }
         return targetSchoolSportsSchedules;
@@ -136,7 +136,7 @@ async function sidearmScrape2(school, sportCode,$) {
             })
         });        
     } catch (err) {
-        console.error('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+        console.lerror('scraper.sidearmScrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
         throw err;
     }
 
@@ -148,7 +148,7 @@ async function sidearmScrape2(school, sportCode,$) {
             let insertID = await idInsert.getIDs(school,nameOff)
         //let distCalc = await distances.getDistances(insertID)
         } catch (err) {
-            console.error('scraper2.sidearm2Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+            console.lerror('scraper2.sidearm2Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
             // swallow the exception
         }
         return targetSchoolSportsSchedules;
@@ -212,7 +212,7 @@ async function sidearmScrape2(school, sportCode,$) {
             })
         });        
     } catch (err) {
-        console.error('scraper.sidearmScrape2: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+        console.lerror('scraper.sidearmScrape2: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
         throw err;
     }
 
@@ -224,7 +224,7 @@ async function sidearmScrape2(school, sportCode,$) {
             let insertID = await idInsert.getIDs(school,nameOff)
             //let distCalc = await distances.getDistances(insertID)
         } catch (err) {
-            console.error('scraper2.sidearm2Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
+            console.lerror('scraper2.sidearm2Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err);
             // swallow the exception
         }
         return targetSchoolSportsSchedules;

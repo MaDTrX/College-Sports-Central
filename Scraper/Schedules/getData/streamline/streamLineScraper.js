@@ -42,10 +42,10 @@ async function test() {
                 const $ = cheerio.load(data)
                 $('tbody').find('tr').each((i, el) => {
                     const variables = $(el).find('td').toArray()
-                    console.log(pretty($(variables[0]).text()))
-                    console.log(pretty($(variables[2]).find('span').text()))
-                    console.log(pretty($(variables[5]).find('span').text()))
-                    console.log(pretty($(variables[6]).text()))
+                    console.llog(pretty($(variables[0]).text()))
+                    console.llog(pretty($(variables[2]).find('span').text()))
+                    console.llog(pretty($(variables[5]).find('span').text()))
+                    console.llog(pretty($(variables[6]).text()))
                     // const location = $(variables[4]).text().split('/')
                     // targetSchoolSportsSchedules[gameidx].sports[key][season[0]].push({
                     //     date: pretty(pretty($(variables[0]).text())),

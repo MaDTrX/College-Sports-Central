@@ -14,7 +14,7 @@ const sideArmPuppeteer = require('./sidearms/sideArmPuppeteer');
 //const presto = require('./presto/eventGroupScraper');
 //const streamline = require('./streamline/streamLineScraper')
 const wmt = require('./wmt/wmt')
-const logging = require('../services/dataDogLogging').config({ service:'school-schedule-scraper'});
+// const logging = require('../services/dataDogLogging').config({ service:'school-schedule-scraper'});
 
 async function Scrape(school, sportCode) {
     const logEntry = {
@@ -57,7 +57,7 @@ async function Scrape(school, sportCode) {
         // makes a request
         const res = await fetch(scheduleUrl)
         if (!res.ok) {
-            console.error(res.status + ':' + res.statusText,logEntry);
+            console.lerror(res.status + ':' + res.statusText,logEntry);
             await DisableSportUrl(school,sportCode,res.status + ':' + res.statusText,new Date())
             return;
         }
@@ -72,14 +72,14 @@ async function Scrape(school, sportCode) {
         try {
             parsedSite = await scraper(school, sportCode,$);
             if (!parsedSite) {
-                console.warn('   Nothing returned from parser: ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
+                console.lwarn('   Nothing returned from parser: ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
                 if (school.parser === "SideArm") {
                     school.parser = "SideArm2";
                     school.location = undefined;
                     try {
-                        await axios.post(process.env.SchoolScheduleIntakeUrl + '/references/Schools', school, { httpsAgent: agent })
+                        // await axios.post(process.env.SchoolScheduleIntakeUrl + '/references/Schools', school, { httpsAgent: agent })
                     } catch (err) {
-                        console.error('routine.sendData: ' + err.message + ' Request: ' + err.request.path + '\r\n' + err,logEntry)
+                        console.lerror('routine.sendData: ' + err.message + ' Request: ' + err.request.path + '\r\n' + err,logEntry)
                     }
                 }
                 try
@@ -88,24 +88,24 @@ async function Scrape(school, sportCode) {
                     parsedSite = await scraper(school, sportCode,$);
 
                     if (!parsedSite) {
-                        console.error('    Nothing returned from parser: ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
+                        console.lerror('    Nothing returned from parser: ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
                         await DisableSportUrl(school,sportCode,'Nothing returned from SideArm',new Date());
                         return;
                     }
                 }
                 catch (err) {
-                    console.error('    ' + err.message + ': ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
+                    console.lerror('    ' + err.message + ': ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
                     await DisableSportUrl(school,sportCode,err.message,new Date());
                     return;
                 }
             }
         }
         catch (err) {
-            console.error('    ' + err.message + ': ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
+            console.lerror('    ' + err.message + ': ' + school.ncaaOrgID + '-' + school.schoolName + ' (' + sportCode + ')',logEntry);
             await DisableSportUrl(school,sportCode,err.message,new Date());
             return;
         }
-        console.info('   ' + parsedSite[0].academicYear + ' ' + parsedSite[0].sportCode + ' ' + parsedSite[0].schoolName + ': ' + parsedSite.length,logEntry)
+        console.linfo('   ' + parsedSite[0].academicYear + ' ' + parsedSite[0].sportCode + ' ' + parsedSite[0].schoolName + ': ' + parsedSite.length,logEntry)
         let schoolSend = _.map(parsedSite,function(item) {
             return { 
                 division: 1,
@@ -133,15 +133,15 @@ async function Scrape(school, sportCode) {
         });
         if (schoolSend.length) {
             try {
-                await axios.post(process.env.SchoolScheduleIntakeUrl + '/intake', schoolSend, { httpsAgent: agent })
+                // await axios.post(process.env.SchoolScheduleIntakeUrl + '/intake', schoolSend, { httpsAgent: agent })
             } catch (err) {
-                console.error('routine.sendData: ' + err.message + ' Request: ' + err.request.path + '\r\n' + err,logEntry)
+                console.lerror('routine.sendData: ' + err.message + ' Request: ' + err.request.path + '\r\n' + err,logEntry)
                 return;
             }
         }
         return parsedSite;
     } catch (err) {
-        console.error('parser.Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err,logEntry);
+        console.lerror('parser.Scrape: '+ err.message + ' ' + school.sportCodeUrls[sportCode] + '\r\n'+ err,logEntry);
         return;
     }
 }
